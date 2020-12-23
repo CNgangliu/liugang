@@ -1,0 +1,41 @@
+server:
+  port: 8088
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  datasource:
+    username: root
+    password: 123456789
+    url: jdbc:mysql://localhost:3306/jsonForm?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+  servlet:
+    multipart:
+      enabled: true
+
+logging:
+  config: classpath:log4j2.xml
+
+mybatis:
+  mapper-locations: classpath:com.lg.dao/*DAO.xml
+  check-config-location: true
+  type-aliases-package: com.example.config
+  configuration:
+    map-underscore-to-camel-case: true
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+
